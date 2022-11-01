@@ -1,0 +1,24 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+
+.temp {
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+border-radius: 12px;
+// margin-right: 0 0 0 70px;
+
+    &_txt {
+        font-weight: 400;
+font-size: 24px;
+line-height: 30px;
+    }
+
+    &_logo {
+       width: 55px;
+       height: 29px;
+    }
+
+}
