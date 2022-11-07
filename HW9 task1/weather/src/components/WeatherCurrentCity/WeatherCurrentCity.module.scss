@@ -1,6 +1,8 @@
 @import './../../commonScss/colors.scss';
 @import './../../commonScss/fonts.scss';
 
+$margin: 30px;
+
 .weather {
     filter: drop-shadow(-4.51px 2.26px 0.75px rgba(0, 0, 0, 0.15));
 
@@ -9,16 +11,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 0 70px 0 70px;
+        margin: 0 70px $margin 70px;
 
 
         &_logo {}
 
         &_temp {
-            width: 91.2px;
+            width: 92px;
             height: 40px;
             background: rgba(255, 255, 255, 0.16);
             border-radius: 100px;
+            position: relative;
 
             &_btn {
                 border: none;
@@ -26,14 +29,20 @@
                 font-size: 24px;
                 line-height: 29px;
                 background-color: transparent;
-                font-weight: 400;
-                font-size: 24px;
-                line-height: 29px;
                 color: $white;
+                width: 46px;
+                height: 40px;
+                border-radius: 100px;
+                transition: all 1s;
+                cursor: pointer;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.18);
+                }
+
 
                 &_active {
-                    // border: none;
-                    width: 52.8px;
+                    width: 46pxpx;
                     height: 40px;
                     background: rgba(255, 255, 255, 0.18);
                     border-radius: 100px;
@@ -46,9 +55,9 @@
         display: inline;
         display: flex;
         justify-content: flex-start;
+        margin-bottom: $margin;
 
         &_value {
-            // display: inline-block;
             position: relative;
             font-size: 164px;
             font-weight: 200;
@@ -66,7 +75,7 @@
         font-weight: 300;
         font-size: 36px;
         line-height: 120%;
-        margin: 0 0 0 70px;
+        margin: 0 0 $margin 70px;
     }
 
     &_line {
@@ -81,7 +90,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin: 0 0 0 40px;
+        margin: 0 0 $margin 40px;
         // position: relative;
 
         &_txt {
@@ -94,7 +103,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin: 0 0 0 40px;
+        margin: 0 0 $margin 40px;
 
         &_one {
             display: flex;
@@ -112,6 +121,7 @@
 
 .temp {
     display: flex;
-    justify-content: space-between;
-    margin-right: 0 0 0 70px;
+    justify-content: space-around;
+    margin: 70px 0 0;
+    padding-bottom: $margin;
 }

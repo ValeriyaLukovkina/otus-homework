@@ -1,6 +1,14 @@
 @import './../../../../../commonScss/colors.scss';
 @import './../../../../../commonScss/fonts.scss';
 
+.city {
+    position: absolute;
+    width: 600px;
+    z-index: 1;
+    top: 133px;
+    right: 34px;
+}
+
 .city_list {
 
     &_txt {

@@ -3,10 +3,17 @@
 
 $widthClock: 130px;
 
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .title {
     text-align: center;
     font-size: 28px;
-line-height: 120%;
+    line-height: 120%;
 }
 
 .clock {
@@ -22,7 +29,7 @@ line-height: 120%;
     justify-content: space-around;
 
     &_hands {
-        
+
 
         &_span {
             width: 0px;
@@ -66,6 +73,6 @@ line-height: 120%;
         font-weight: 400;
         text-align: center;
         font-size: 29px;
-line-height: 35px;
+        line-height: 35px;
     }
 }

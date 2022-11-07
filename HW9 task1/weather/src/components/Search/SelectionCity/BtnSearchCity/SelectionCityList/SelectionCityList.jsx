@@ -3,23 +3,26 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 
 
-const SelectionCityList = (props) => {
+const SelectionCityList = ({setSelectionCity, showInput, cityList, getDataCurrentCity, changeFetching, showChoiceCity }) => {
 
     return (
-        <>
-            {props.cityList.length >= 1 &&
-                props.cityList.map(el => {
+        <div className={style.city}>
+            {cityList.length > 1 &&
+                cityList.map(el => {
                     return (
                         <div className={style.city_list}>
                             <NavLink onClick={() => {
-                                props.getDataCurrentCity(el.id);
-                                props.changeFetching(true);
+                                getDataCurrentCity(el.id);
+                                changeFetching(true);
+                                showChoiceCity(false);
+                                showInput();
+                                setSelectionCity(el.name)
                             }} to={`/city/${el.name.split(' ').join('')}`} className={style.city_list_txt}>{el.name}</NavLink>
                         </div>
                     )
                 })
             }
-        </>
+        </div>
     )
 
 }

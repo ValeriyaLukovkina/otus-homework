@@ -57,7 +57,6 @@ app.get(`/citylist/:name`, cors(), (req, res) => {
             console.log(error);
             res.send('Ошибка')
         })
-    // console.log(a)
 })
 
 app.get(`/citylist/getId/:id`, cors(), (req, res) => {
@@ -72,55 +71,7 @@ app.get(`/citylist/getId/:id`, cors(), (req, res) => {
             console.log(error);
             res.send('Ошибка')
         })
-    // console.log(a)
 })
-
-
-// mongoose.connect('mongodb://localhost:27017'
-// , {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true
-// }
-// )
-// .then(() => {
-//     app.listen(3001, () => {
-//         console.log('Server has been started')
-//     })
-// })
-
-// app.use('/city', require('./routes/city.routes'))
-
-
-// app.use(express.static(__dirname + '/weather/'));
-// app.get('/api/city', (req, res) => {
-//     res.status(200).json(city)
-// })
-
-// app.get('/1', (req, res) => {
-//     res.sendFile(__dirname +  '/city.json')
-// })
-
-
-// import axios from "axios";
-
-// const options = {
-//   method: 'GET',
-//   url: 'https://meteostat.p.rapidapi.com/stations/meta',
-//   params: {id: '10637'},
-//   headers: {
-//     'X-RapidAPI-Key': '9431e02896mshc2305e8a3c7768dp1b6d4cjsncb8733e95a9b',
-//     'X-RapidAPI-Host': 'meteostat.p.rapidapi.com'
-//   }
-// };
-
-// export default options;
-
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
 
 app.listen(PORT, error => {
     error ? console.log(error) : console.log('listening port 3001  ')

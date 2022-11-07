@@ -1,4 +1,6 @@
-const GET_DATA_CURRENT_CITY = 'GET_DATA_CURRENT_CITY';
+import { searchAPI } from "../api/api";
+
+const SET_DATA_CURRENT_CITY = 'SET_DATA_CURRENT_CITY';
 const CHANGE_FETCHING = 'CHANGE_FETCHING'
 
 let initialState = {
@@ -12,39 +14,37 @@ let initialState = {
             lat: ''
         }
     },
-    
+
 }
 
-export const getCityReducer = (state = initialState, action) => {
+const getCityReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_DATA_CURRENT_CITY:
+        case SET_DATA_CURRENT_CITY:
             return {
                 ...state,
                 dataCurrentCity: {
                     ...state.dataCurrentCity,
-                    id: action.objDataCity.id,
-                    name: action.objDataCity.name,
-                    country: action.objDataCity.country,
-                    coord: {
-                        lon: action.objDataCity.coord.lon,
-                        lat: action.objDataCity.coord.lat
-                    }
+                    ...action.objDataCity
                 }
             }
-        case CHANGE_FETCHING: 
-        debugger
-        return {
-            ...state,
-            isFetching: action.boolFetching
-        }
+        case CHANGE_FETCHING:
+            return {
+                ...state,
+                isFetching: action.boolFetching
+            }
         default:
             return state
     }
 }
 
-export const getDataCurrentCityAC = (objDataCity) => ({ type: GET_DATA_CURRENT_CITY, objDataCity });
+export const setDataCurrentCity = (objDataCity) => ({ type: SET_DATA_CURRENT_CITY, objDataCity });
 
-export const changeFetchingAC = (boolFetching) => ({ type: CHANGE_FETCHING, boolFetching });
+export const changeFetching = (boolFetching) => ({ type: CHANGE_FETCHING, boolFetching });
 
+
+export const getDataCurrentCity = (id) => async (dispatch) => {
+    let promise = await searchAPI.getDataCityById(id);
+    dispatch(setDataCurrentCity({ ...promise[0] }));
+}
 
 export default getCityReducer;
